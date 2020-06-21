@@ -506,3 +506,217 @@ class Accounts
 end
 ```
 > 访问类方法 Accounts.return_date
+
+* 代码块
+```
+[10, 20, 30].each do |n|
+  puts n
+ end
+
+ [10,20,30].each {
+   |i|
+   puts i
+ }
+```
+* yield语句传递参数
+```
+def met   
+   yield 1   
+   puts "This is method"   
+   yield 2   
+end   
+met {|i| puts "This is block #{i}"}
+```
+
+* BEGIN和END块
+```
+BEGIN {   
+  puts "code block is being loaded"   
+}   
+
+END {   
+  puts "code block has been loaded"   
+}   
+puts "This is the code block"
+```
+
+* 使用默认值初始化对象
+```
+class Novel   
+  attr_accessor :pages, :category   
+
+  def initialize   
+    yield(self)   
+  end   
+end   
+
+novel = Novel.new do |n|   
+  n.pages = 564   
+  n.category = "thriller"   
+end   
+
+puts "I am reading a #{novel.category} novel which has #{novel.pages} pages."
+
+# 输出结果
+I am reading a thriller novel which has 564 pages.
+```
+
+### Ruby模块
+1、Ruby模块是方法和常量的集合。模块方法可以是实例方法或模块方法。实例方法是包含模块的类中的方法。
+
+2、可以在不创建封装对象的情况下调用模块方法，但是实例方法不能这么直接调用。
+
+3、Ruby模块类似于类，因为它们包含方法，类定义，常量和其他模块的集合。Ruby模块可定义为类。但无法使用模块来创建对象或子类。也没有继承的模块层次结构。
+
+> 模块基本上主要有两个目的：
+
+> 1、它们作为命名空间，防止对象名字冲突。
+
+> 2、它们允许> mixin工具在类之间共享功能
+
+
+* 模块混合
+```
+module Name   
+   def bella   
+   end   
+   def ana   
+   end   
+end   
+module Job   
+   def editor   
+   end   
+   def writer   
+   end   
+end   
+
+class Combo   
+include Name   
+include Job   
+   def f   
+   end   
+end   
+
+final=Combo.new   
+final.bella   
+final.ana   
+final.editor   
+final.writer   
+final.f
+```
+> 这里，模块Name由方法bella和ana组成。 模块Job由方法editor和writer组成。Combo类包括两个模块，由于Combo可以访问所有四种方法。 因此，Combo类作为mixin混合类型使用
+
+### Ruby字符串
+
+* 访问字符串元素
+```
+msg = "welcome to akon coder program"   
+
+puts msg["akon"]   
+puts msg["program"]   
+
+puts msg[0]   
+
+puts msg[0, 2]   
+puts msg[0..5]   
+puts msg[0, msg.length]   
+puts msg[-3]
+
+# 执行结果
+akon
+program
+w
+we
+welcom
+welcome to akon coder program
+r
+```
+
+* 连接字符串
+
+Ruby连接字符串是要使用多个字符串来创建一个字符串。可以通过连接多个字符串来形成单个字符串。
+将Ruby字符串连接成单个字符串有四种方法：
+
+1、在每个字符串之间使用加(+)号。
+
+2、在每个字符串之间使用单个空格。
+
+3、在每个字符串之间使用<<符号。
+
+4、在字符串之间使用concat方法。
+
+```
+string = "This is Ruby Tutorial" + " from Yiibai." + " Wish you all good luck."   
+puts string   
+
+string = "This is Ruby Tutorial" " from Yiibai." " Wish you all good luck."   
+puts string   
+
+string = "This is Ruby Tutorial" << " from Yiibai." << " Wish you all good luck."   
+puts string   
+
+string = "This is Ruby Tutorial".concat(" from Yiibai.").concat(" Wish you all good luck.")   
+puts string
+```
+
+* 冻结字符串
+
+在大多数编程语言中，字符串是不可变的。现有的字符串不能修改，只能创建一个新的字符串。
+在Ruby中，默认的字符串是可变的。为了使它们不可修改，可以使用freeze方法。
+
+```
+str = "Original string"   
+str << " is modified "   
+str << "is again modified"   
+
+puts str   
+
+str.freeze   
+
+## 试着去修改看看
+str << "is again modified"   
+
+puts str
+
+#str << "And here modification will be failed after using freeze method"
+
+# 执行结果
+Original string is modified is again modified
+Traceback (most recent call last):
+Ruby字符串.rb:22:in `<main>': can't modify frozen String: "Original string is modified is again modified" (FrozenError)
+
+```
+
+* 比较字符串
+
+Ruby字符串可以使用以下三个运算符进行比较：
+
+1、使用==运算符：返回true或false使用
+
+2、eql? 运算符：返回true或false
+
+3、使用casecmp方法：如果匹配则返回0，如果不匹配则返回1。
+
+```
+puts "abc" == "abc"   
+puts "as ab" == "ab ab"   
+puts "23" == "32"   
+
+puts "ttt".eql? "ttt"   
+puts "12".eql? "12"   
+
+puts "Java".casecmp "Java"   
+puts "Java".casecmp "java"   
+puts "Java".casecmp "ja"
+
+# 执行结果
+true
+false
+false
+true
+true
+0
+0
+1
+```
+
