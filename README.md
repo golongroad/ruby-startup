@@ -931,8 +931,56 @@ Sat
 Sun
 ```
 
+### 哈希使用
 
+* 创建哈希
 
+Ruby哈希是通过在{}花括号中编写键值对来创建的。要获取哈希值，请在[]方括号内写入所需的键名称。
+
+```
+color = {  
+    "Rose" => "red",   
+    "Lily" => "purple",   
+    "Marigold" => "yellow",   
+    "Jasmine" => "white"   
+  }   
+  puts color['Rose']   
+  puts color['Lily']   
+  puts color['Marigold']   
+  puts color['Jasmine']
+
+执行上面示例代码，得到以下结果
+
+red
+purple
+yellow
+white
+```
+
+* 修改哈希
+
+可以通过在已存在的哈希中添加或删除键值对来修改Ruby哈希。
+
+```
+color = {   
+    "Rose" => "red",   
+    "Lily" => "purple",   
+    "Marigold" => "yellow",   
+    "Jasmine" => "white"   
+  }   
+  color['Tulip'] = "pink"   
+  color.each do |key, value|   
+  puts "#{key} color is #{value}"   
+ end
+
+执行上面示例代码，得到以下结果
+
+Rose color is red
+Lily color is purple
+Marigold color is yellow
+Jasmine color is white
+Tulip color is pink
+```
 
 
 
