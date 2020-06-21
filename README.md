@@ -468,3 +468,41 @@ Ruby多行注释用于一次注释多行。 它们使用=begin开始并在行尾
     another line...
 =end
 ```
+
+### Ruby核心
+* 方法的定义
+```
+class Test
+def function (s1 = "default s1", s2 = "default s2")
+  puts "s1 is #{s1}"
+  puts "s2 is #{s2}"
+end
+end
+
+s = Test.new
+s.function("new s1","new s2")
+```
+
+* 可变参数数
+```
+def sample (*test)
+   puts "The number of parameters is #{test.length}"
+   for i in 0...test.length
+      puts "The parameters are #{test[i]}"
+   end
+end
+sample "Maxsu", "6", "F"
+sample "Mac", "38", "M", "MCA"
+
+```
+
+* 类方法
+```
+class Accounts
+   def reading_charge
+   end
+   def Accounts.return_date
+   end
+end
+```
+> 访问类方法 Accounts.return_date
