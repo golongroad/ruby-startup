@@ -185,3 +185,170 @@ akonakonakon
 ```
 数组中的元素由其位置检索。 数组中元素的位置以0开头。
 
+### Ruby快速入门
+1、常用的字符串方法
+* .length
+```
+  def strHandle(strName)
+    puts strName.length
+  end
+```
+
+* .split
+```
+  def strSplit(splitStr)
+    result = splitStr.split(",")
+    puts result
+  end
+```
+
+* .sub 和 .gsub
+```
+# sub example
+
+  def subStr(str)
+    subResult = str.sub("akon","liupeng")
+    puts subResult
+  end
+  
+# gsub example
+
+  def gsubStr(str)
+    gsubResult = str.gsub("Hello","liupeng")
+    puts gsubResult
+  end
+
+```
+* 块 - 重复指令
+```
+5.times do 
+  puts "hello world"
+end
+```
+
+* 支架块 
+```
+5.times{ puts "Hello, World!" }
+```
+
+* 块被传递给方法
+```
+"this is a sentence".gsub("e"){ puts "Found an E!"}
+```
+请注意，”Found an E!“显示了三次，因为字符串中有三个E字母。
+
+* 块参数
+```
+5.times do |i|
+  puts "#{i}: Hello, World!"
+end
+
+执行结果
+
+0: Hello, World!
+1: Hello, World!
+2: Hello, World!
+3: Hello, World!
+4: Hello, World!
+```
+通常，在块内指示需要引用正在使用的值。 当在编写块代码时，可以在管道字符中指定一个块参数
+
+* 数组的使用
+```
+meals = ["Breakfast", "Lunch", "Dinner"]
+# 往数组添加元素
+meals << "Dessert"
+puts meals[2]
+```
+
+* 数组常用方法
+
+1、.sort方法
+```
+array1 = ["this", "is", "an", "array"]
+
+# 执行结果
+["an", "array", "is", "this"]
+```
+
+* 条件语句
+
+1、条件语句评估求值结果为true或false。 最常见的条件运算符是==(相等)，>(大于)，>=(大于或等于)，<(小于)和<=(小于或等于)。
+
+2、一些对象也有返回true或false的方法，因此它们在条件语句中使用。 例如，每个对象都有方法.nil？ 只有当对象为nil时才返回：true。 数组有一个名称为.include的方法 如果数组包含指定的元素，则返回true。 Ruby中的约定方法名称以？结尾返回true或false。
+
+```
+def water_status(minutes)
+  if minutes < 7
+    puts "The water is not boiling yet."
+  elsif minutes == 7
+    puts "It's just barely boiling"
+  elsif minutes == 8
+    puts "It's boiling!"
+  else
+    puts "Hot! Hot! Hot!"
+  end
+end
+
+ # 执行结果
+
+The water is not boiling yet.
+It's just barely boiling
+It's boiling!
+Hot! Hot! Hot!
+```
+
+* Nil和虚无
+
+1、什么是虚无？ 当我们表达一个东西，没有确定它是什么东西的暂时可以叫它为：虚无，不是没有什么东西吗？ 好的，这太多哲学了，这有确实点难解释了。
+
+2、nil是Ruby中用于表达“虚无”的方式。
+如果有三个鸡蛋，您吃三个鸡蛋，那么可能认为现在您“没有什么”蛋了，但是在鸡蛋方面有“0”个。0是什么？它是一个数字，它并不是“虚无”。
+如果使用一个单词，如“hello”这样的字符串，那么删除“h”，“e”，“l”和“o”，你可能会认为没有什么，但是现在真的有“”，它是一个空字符串，并不是“虚无”。
+
+3、nil是Ruby的虚无的想法的表示。 当要求不存在的东西时，通常会遇到这种情况。 例如，当查看数组时，创建了一个包含五个元素的列表，然后要获取列表中添加第六个元素。但是没有第六个元素，所以Ruby给了nil。 在第六个元素的地方它并不是空白(“”)，也不是数字0，它是空/nil。
+
+4、编写Ruby代码时遇到的大部分错误是涉及nil值的。以为某个位置有数据值，试图使用使用这个数据值去做一些事情，但没有这样的数据值，不能做任何事情，所以Ruby引发了一个错误。
+
+* 对象、属性和方法
+
+1、类和实例在面向对象编程中，我们定义了类，它们是类别或类型的东西的抽象描述。 它定义了该类型的所有对象的属性和方法。
+
+例如，考虑对一个学校信息建模。要创建一个名为“Student”的类，表示学生的抽象。 Student类将定义如：first_name，last_name和primary_phone_number的属性。 它可以定义一个用于学生自我介绍的方法：introduction。
+```
+class Student
+  attr_accessor :first_name, :last_name, :primary_phone_number
+
+  def introduction
+    puts "Hi, I'm #{first_name}!"
+  end
+end
+```
+> attr_accessor方法是用于定义类的实例的属性。
+
+2、类的方法返回值
+```
+class Student
+  attr_accessor :first_name, :last_name, :primary_phone_number
+
+  def introduction(target)
+    puts "Hi #{target}, I'm #{first_name}!"
+  end
+
+  def favorite_number
+    7
+  end
+end
+
+frank = Student.new
+frank.first_name = "Maxsu"
+puts "Maxsu's favorite number is #{frank.favorite_number}."
+```
+打开终端运行上面代码，应该看到：“Maxsu's favorite number is 7”。文件的最后一行调用的是favorite_number方法。 该方法的最后一行(只有)行是第7行。这个表达式作为方法的返回值，该值返回给调用该方法的任何人。在例子中，这7数字值返回并被插入到字符串中。
+
+
+
+
+
+
+
