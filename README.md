@@ -1041,11 +1041,152 @@ puts Time.new(2019, 3, 4, 6, 5, 5, "+05:00")
 2019-03-04 06:05:05 +0500
 ```
 
+### Ruby范围
+
+Ruby范围表示一组具有开始和结束的值。 它们可以使用s..e和s...e文字或::new构建。
+其中..的范围包括起始值和结束值。而...的范围不包含起始值和结束值。
+
+```
+puts (-5..-1).to_a
+puts '---------- 1 ------------'
+puts (-5...-1).to_a       
+puts '---------- 2 ------------'
+puts ('a'..'e').to_a      
+puts '---------- 3 ------------'
+puts ('a'...'e').to_a
+
+输出结果
+
+-5
+-4
+-3
+-2
+-1
+---------- 1 ------------
+-5
+-4
+-3
+-2
+---------- 2 ------------
+a
+b
+c
+d
+e
+---------- 3 ------------
+a
+b
+c
+d
+```
+
+Ruby有多种方式来定义范围。它们分别如下所示 
+
+* 范围作为序列
+
+定义范围的最自然的方式是顺序。它们有起点和终点。它们使用..或...运算符创建。下面示例中将从0到5的采样范围。对此范围进行操作，如下代码所示：
+
+```
+range = 0..5   
+
+puts range.include?(3)   
+ans = range.min   
+puts "Minimum value is #{ans}"   
+
+ans = range.max   
+puts "Maximum value is #{ans}"   
+
+ans = range.reject {|i| i < 5 }   
+puts "Rejected values are #{ans}"   
+
+range.each do |digit|   
+   puts "In Loop #{digit}"   
+end
+
+输出结果
+
+true
+Minimum value is 0
+Maximum value is 5
+Rejected values are [5]
+In Loop 0
+In Loop 1
+In Loop 2
+In Loop 3
+In Loop 4
+In Loop 5
+```
+
+* 范围作为条件
+
+范围也定义为条件表达式。在个行集合中定义了不同的条件。 这些条件都包含在开始语句和结束语句中。
+
+```
+budget = 50000   
+
+watch = case budget   
+   when 100..1000 then "Local"   
+   when 1000..10000 then "Titan"   
+   when 5000..30000 then "Fossil"   
+   when 30000..100000 then "Rolex"   
+   else "No stock"   
+end   
+
+puts watch
+
+输出结果
+
+Rolex
+```
+
+* 范围为间隔
+
+范围也可以用间隔来定义。 间隔由===相等运算符表示。
+
+```
+if (('a'..'z') === 'v')   
+  puts "v lies in the above range"   
+end   
+
+if (('50'..'90') === 99)   
+  puts "z lies in the above range"   
+end
+
+执行上面代码，得到以下结果
+
+v lies in the above range
+```
 
 
+### Ruby反转范围
 
+Ruby反转(reverse)范围运算符不返回任何值。 如果左侧值大于一个范围内的右侧值，则不会有返回值。
 
+```
+puts (5..1).to_a
+```
+> 上述示例的输出中不会返回任何内容。
 
+要打印范围相反的顺序，可以在正常范围内使用reverse方法，如下所示。
+
+```
+puts (1..5).to_a.reverse   
+puts '----------------------'
+puts ('a'...'e').to_a.reverse
+
+执行上面代码，得到以下结果
+
+5
+4
+3
+2
+1
+----------------------
+d
+c
+b
+a
+```
 
 
 
