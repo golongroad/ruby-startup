@@ -443,3 +443,28 @@ rescue => ex
 end
 puts "Ok, I give up"
 ```
+
+### Ruby注释
+
+* 单行注释
+
+Ruby单行注释用于一次只注释一行。它们以＃字符开头。
+
+```
+#This is single line comment.
+```
+
+* 多行注释
+
+Ruby多行注释用于一次注释多行。 它们使用=begin开始并在行尾以=end为终点。
+
+```
+=begin
+    This
+    is
+    multi line
+    comment
+    line 1
+    another line...
+=end
+```
