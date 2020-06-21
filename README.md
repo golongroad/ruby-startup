@@ -117,4 +117,4 @@ Global variable in Two is GLOBAL
 ```
 > 总结
 
-![变量总结]("/images/变量.png")
+![变量总结](/images/变量.png)
