@@ -364,6 +364,35 @@ for i in x do
 end
 ```
 
+* while 使用
+```
+puts "Enter a value:"
+x = gets.chomp.to_i
+while x >= 0
+  puts x
+  x -=1
+end
+```
 
+* do while 使用
+```
+loop do
+  puts "please input a value"
+  input = gets.chomp
+  if input == '5'
+    puts "i quit"
+    break
+  end
+end
+```
+* until 使用
+```
+i =1
+until i == 10
+  puts i * 10
+  i= i + 1
+end
+```
+> until循环运行直到给定的条件求值为true,当条件成立时，它退出循环。 它正好与while循环相反，while循环运行直到给定的条件评估求值为false。
 
 
