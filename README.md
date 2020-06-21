@@ -347,7 +347,22 @@ puts "Maxsu's favorite number is #{frank.favorite_number}."
 打开终端运行上面代码，应该看到：“Maxsu's favorite number is 7”。文件的最后一行调用的是favorite_number方法。 该方法的最后一行(只有)行是第7行。这个表达式作为方法的返回值，该值返回给调用该方法的任何人。在例子中，这7数字值返回并被插入到字符串中。
 
 
+* for 循环使用
+```
+# simple for
+puts "输入一个数字："
+a = gets.chomp.to_i
+for i in 1..a do
+  puts i
+end
 
+
+# 循环数组
+x = ["Blue", "Red", "Green", "Yellow", "White", '五颜六色']   
+for i in x do   
+  puts i   
+end
+```
 
 
 
