@@ -982,6 +982,68 @@ Jasmine color is white
 Tulip color is pink
 ```
 
+### Ruby日期时间
+
+Ruby文档中主要有三个与日期和时间相关的类，它们分别如下所示
+* Date
+ ```
+ require 'date'   
+
+puts Date.new(2017,9,3)            
+puts Date.jd(2451877)               
+puts Date.ordinal(2017,9)         
+puts Date.commercial(2017,5,6)     
+puts Date.parse('2017-08-03')    
+puts Date.strptime('03-02-2017', '%d-%m-%Y')                           
+puts Time.new(2017,11,8).to_date
+
+执行上面代码，得到以下结果
+
+2017-09-03
+2000-11-28
+2017-01-09
+2017-02-04
+2017-08-03
+2017-02-03
+2017-11-08
+ ```
+* DateTime
+
+Ruby DateTime是Date的子类。它可以轻松处理日期，时间，分钟，秒和偏移量。
+DateTime对象使用DateTime.new，DateTime.ordinal，DateTime.parse，DateTime.jd，DateTime.commercial，DateTime.now等来创建
+
+```
+require 'date'   
+puts DateTime.new(2019,3,4,5,6,7)
+
+执行上面代码，得到以下结果
+
+2019-03-04T05:06:07+00:00
+```
+* Time
+
+1、可以使用::new创建新的Time实例。这可使用获取当前系统的时间。 部分时间，如年，月，日，小时，分钟等也可以通过这种方法获得。
+
+2、创建新的时间实例时，您需要指定传递至少年份。 如果只有通过了指定年份，那么时间将默认为当前系统时区的那个年份的1月1日 00:00:00开始。
+
+```
+require 'date'   
+puts Time.new          
+puts Time.new(2018, 3)       
+puts Time.new(2018, 3, 4)   
+puts Time.new(2019, 3, 4, 6, 5, 5, "+05:00")
+
+执行上面代码，得到以下结果
+
+2017-05-08 23:31:03 +0800
+2018-03-01 00:00:00 +0800
+2018-03-04 00:00:00 +0800
+2019-03-04 06:05:05 +0500
+```
+
+
+
+
 
 
 
