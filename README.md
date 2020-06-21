@@ -720,3 +720,223 @@ true
 1
 ```
 
+### Ruby数组
+
+* 创建Ruby数组
+
+Ruby数组以许多方式创建。
+
+1、使用文字构造函数 []
+```
+arr = [4, 4.0, "maxsu", ]   
+puts arr
+```
+
+2、使用类的new方法
+```
+exm = Array.new(10)   
+puts exm.size    
+puts exm.length
+
+exm = Array("a"..."z")   
+puts "#{exm}"
+
+```
+* 访问数组元素
+
+1、下标访问
+```
+days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]   
+puts days[0]      
+puts days[10]   
+puts days[-2]     
+puts days[2, 3]   
+puts days[1..7]
+```
+2、at方法
+
+```
+days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]   
+puts days.at(0)   
+puts days.at(-1)   
+puts days.at(5)
+```
+
+3、fetch方法
+
+fetch方法用于为数组范围索引提供默认的错误值。
+```
+days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]   
+puts days.fetch(10, 'NotFound')
+```
+
+4、first 和 last 方法
+
+first 和 last 方法方法将分别返回数组的第一个和最后一个元素。
+
+```
+days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]   
+puts days.first   
+puts days.last
+```
+
+5、take 方法
+
+take方法返回数组的前n个元素。
+```
+days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]   
+puts days.take(1)   
+puts days.take(2)   
+puts days.take(3)
+```
+
+6、drop方法
+
+drop方法与take方法相反。 它返回在第n个元素之后的所有元素。
+
+```
+days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]   
+puts days.drop(5)   
+puts days.drop(6)
+
+执行上面代码，得到以下结果
+
+Sat
+Sun
+Sun
+```
+
+7、将元素项添加到数组
+
+可以以不同的方式向Ruby数组添加元素。
+
+* push 或 << 
+
+使用push或<<，可以在数组的末尾添加项目元素。
+
+```
+days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]  
+puts days.push("Today")   
+puts '-------------------------------'
+puts days << ("Tomorrow")
+
+执行结果
+
+Mon
+Tue
+Wed
+Thu
+Fri
+Sat
+Sun
+Today
+-------------------------------
+Mon
+Tue
+Wed
+Thu
+Fri
+Sat
+Sun
+Today
+Tomorrow
+```
+* unshift
+
+使用unshift，可以在数组的开头添加一个新元素。
+
+```
+days = ["Fri", "Sat", "Sun"]   
+
+puts days.unshift("Today")
+
+执行上面代码，得到以下结果
+
+Today
+Fri
+Sat
+Sun
+```
+
+* insert
+
+使用insert，可以在数组中的任何位置添加一个新元素。 在这里，首先需要要定位元素的索引位置。
+
+```
+days = ["Fri", "Sat", "Sun"]   
+puts days.insert(2, "Thursday")
+
+执行上面代码，得到以下结果
+
+Fri
+Sat
+Thursday
+Sun
+```
+
+
+8、从数组中删除项/元素
+
+可以使用以下几种方式来删除Ruby数组元素。
+
+* pop
+
+使用pop方法，可以从数组的末尾删除项/元素。它返回删除的数据项/元素。
+
+```
+days = ["Fri", "Sat", "Sun"]   
+puts days.pop
+
+执行上面代码，得到以下结果 
+
+Sun
+```
+* shift
+
+使用shift，可以从数组的起始处删除项/元素。 它返回删除的项目/元素。
+
+```
+days = ["Fri", "Sat", "Sun"]   
+puts days.shift
+
+执行上面代码，得到以下结果
+
+Fri
+```
+* delete
+
+使用delete方法，可以从数组中的任意位置删除项(元素)。 它返回删除的项目(元素)。
+
+```
+days = ["Fri", "Sat", "Sun"]   
+puts days.delete("Sat")
+
+执行上面代码，得到以下结果
+
+Sat
+```
+
+* uniq
+
+使用uniq方法，可以从数组中删除重复的元素。它返回删除重复元素后剩余的数组。
+
+```
+days = ["Fri", "Sat", "Sun", "Sat"]   
+puts days.uniq
+
+执行上面代码，得到以下结果
+
+Fri
+Sat
+Sun
+```
+
+
+
+
+
+
+
+
+
+
