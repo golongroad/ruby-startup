@@ -396,3 +396,50 @@ end
 > until循环运行直到给定的条件求值为true,当条件成立时，它退出循环。 它正好与while循环相反，while循环运行直到给定的条件评估求值为false。
 
 
+* break、next 使用
+```
+# break
+i =1
+while true
+  if i * 5 >= 25
+    break
+  end
+    puts i * 5
+    i = i + 1
+end
+
+# next
+for i in 1..12 do
+  if (i % 3 == 0) then
+    puts "skip over"
+    next
+  end
+  puts i
+end
+```
+> 1 、break语句用于终止循环。 它主要用于在while循环中，在条件为真时执行语句，break语句一般用于终止循环。
+
+> 2、next语句用于跳过循环的下一个迭代。 执行下一条语句后，不再执行进一步的迭代。Ruby中的下一条语句等同于其他语言的continue语句。
+
+* redo、retry使用
+```
+# redo
+array=[1,2,3,4,5]
+array.each do |i|
+  puts i
+  i += 1
+  redo if i== 3
+  end
+ 
+# retry
+n = 0
+begin
+  puts 'Trying to do something?'
+  raise 'oops'
+rescue => ex
+  puts ex
+  n += 1
+  retry if n < 3
+end
+puts "Ok, I give up"
+```
