@@ -1188,6 +1188,101 @@ b
 a
 ```
 
+### Ruby迭代器
+* each迭代器
+
+Ruby each迭代器是从哈希或数组返回所有的元素。
+
+```
+(1...5).each do |i|   
+   puts i   
+end
+
+执行上面代码，得到以下结果
+
+1
+2
+3
+4
+```
+* times迭代器
+
+循环由times迭代器执行指定的次数。 循环将从零开始，并直到所有小于指定的数字的值。
+
+```
+5.times do |n|   
+  puts n   
+end
+
+执行上面代码，得到以下结果
+
+0
+1
+2
+3
+4
+```
+
+* upto迭代器
+
+Ruby upto迭代器执行从数字x到数字y的迭代
+
+```
+1.upto(5) do |n|   
+  puts n   
+end
+
+执行上面代码，得到以下结果
+
+1
+2
+3
+4
+5
+```
+
+* step迭代器
+
+Ruby step迭代器用于在跳过范围时迭代。
+
+```
+(10..50).step(5) do |n|   
+  puts n   
+end
+
+执行上面代码，得到以下结果
+
+10
+15
+20
+25
+30
+35
+40
+45
+50
+```
+
+* each_line 迭代器
+
+each_line迭代器用于迭代字符串中的行。
+
+```
+"All\nthe\nwords\nare\nprinted\nin\na\nnew\line.".each_line do |line|   
+puts line   
+end
+
+执行上面代码，得到以下结果
+
+All
+the
+words
+are
+printed
+in
+a
+newline.
+```
 
 
 
